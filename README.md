@@ -16,4 +16,4 @@ to pick out e.g. "the red terminal window" or "the blue terminal window".
 Taote is designed to be used together with [The Acutely Opinionated Window
 Manager](https://github.com/nigeltao/taowm).
 
-![screenshot](./doc/screenshot0.png)
+![screenshot](./doc/screenshot0-hi-res.png)
