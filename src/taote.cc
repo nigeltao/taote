@@ -85,6 +85,12 @@ class Tab {
   explicit Tab();
   ~Tab();
 
+  // Delete the copy and assign constructors.
+  Tab(const Tab&) = delete;
+  Tab& operator=(const Tab&) = delete;
+
+  // ----
+
   bool isClosed() const;
   bool isSelected() const;
 
@@ -122,6 +128,21 @@ class Window {
   explicit Window(GtkApplication* app, uint32_t titleColor, Tab* cwdTab);
   ~Window() = default;
 
+  // Delete the copy and assign constructors.
+  Window(const Window&) = delete;
+  Window& operator=(const Window&) = delete;
+
+  // ----
+
+  void updateTitleColor(uint32_t delta);
+  void updateTitleText();
+
+  bool adoptSelectedTabs();
+  void attachTab(Tab* t, Activate activate);
+  void detachTab(Tab* t, Detach detach);
+  Tab* mruOpenTab();
+  void walk(Dir dir, Nudge nudge);
+
   // ----
 
   GtkApplication* mApp;
@@ -137,17 +158,6 @@ class Window {
 
   // mTabs is the dummy element of a circular double-linked list.
   Tab mTabs;
-
-  // ----
-
-  void updateTitleColor(uint32_t delta);
-  void updateTitleText();
-
-  bool adoptSelectedTabs();
-  void attachTab(Tab* t, Activate activate);
-  void detachTab(Tab* t, Detach detach);
-  Tab* mruOpenTab();
-  void walk(Dir dir, Nudge nudge);
 };
 
 // --------
