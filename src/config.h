@@ -49,12 +49,14 @@ static GdkRGBA g_palette_colors[NUM_G_PALETTE_COLORS] = {
 
 #define NUM_G_TITLE_COLORS 8
 static GdkRGBA g_title_colors[NUM_G_TITLE_COLORS] = {
-    {0.3750, 0.3750, 0.3750, 1.0},  //
-    {0.5000, 0.0000, 0.2500, 1.0},  //
-    {0.2500, 0.5000, 0.0000, 1.0},  //
-    {0.0000, 0.2500, 0.5000, 1.0},  //
-    {0.1875, 0.1875, 0.1875, 1.0},  //
-    {0.5000, 0.2500, 0.0000, 1.0},  //
-    {0.0000, 0.5000, 0.2500, 1.0},  //
-    {0.2500, 0.0000, 0.5000, 1.0},  //
+    // These colors from rebrickable.com/colors/ are as good as any.
+
+    MAKE_GDKRGBA(0x6D, 0x6E, 0x5C),  // Dark Gray
+    MAKE_GDKRGBA(0x00, 0x55, 0xBF),  // Blue
+    MAKE_GDKRGBA(0x00, 0x8F, 0x9B),  // Dark Turquoise
+    MAKE_GDKRGBA(0x4B, 0x9F, 0x4A),  // Bright Green
+    MAKE_GDKRGBA(0xC8, 0x70, 0xA0),  // Dark Pink
+    MAKE_GDKRGBA(0xAE, 0x7A, 0x59),  // Copper
+    MAKE_GDKRGBA(0xC9, 0x1A, 0x09),  // Red
+    MAKE_GDKRGBA(0x92, 0x39, 0x78),  // Magenta
 };
