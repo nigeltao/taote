@@ -272,6 +272,7 @@ Tab::ensureTerminalWidget() {
   }
   vte_terminal_set_font(VTE_TERMINAL(mTerminal), gFontDescription);
 
+  vte_terminal_set_audible_bell(VTE_TERMINAL(mTerminal), FALSE);
   vte_terminal_set_bold_is_bright(VTE_TERMINAL(mTerminal), TRUE);
   vte_terminal_set_colors(VTE_TERMINAL(mTerminal), nullptr, nullptr,
                           g_palette_colors, NUM_G_PALETTE_COLORS);
