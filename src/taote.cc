@@ -489,12 +489,11 @@ Window::attachTab(Tab* t, Activate activate) {
 
 void  //
 Window::detachTab(Tab* t, Detach detach) {
-  if (t->mTerminal == nullptr) {
-    // No-op.
-  } else if (detach == DETACH_TEMPORARILY) {
+  if (t->mTerminal != nullptr) {
     gtk_container_remove(GTK_CONTAINER(mStack), t->mTerminal);
-  } else {
-    gtk_widget_destroy(t->mTerminal);
+    if (detach == DETACH_PERMANENTLY) {
+      gtk_widget_destroy(t->mTerminal);
+    }
   }
 
   t->mWindow = nullptr;
