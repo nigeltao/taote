@@ -712,8 +712,12 @@ main(int argc, char** argv) {
   gSelectedTabs.mSelTabs[DIR_PREV] = &gSelectedTabs;
   gSelectedTabs.mSelTabs[DIR_NEXT] = &gSelectedTabs;
 
-  GtkApplication* app = gtk_application_new("com.github.nigeltao.taote",
-                                            G_APPLICATION_FLAGS_NONE);
+#if GLIB_CHECK_VERSION(2, 74, 0)
+  const GApplicationFlags flags = G_APPLICATION_DEFAULT_FLAGS;
+#else
+  const GApplicationFlags flags = G_APPLICATION_FLAGS_NONE;
+#endif
+  GtkApplication* app = gtk_application_new("com.github.nigeltao.taote", flags);
   g_signal_connect(app, "activate", G_CALLBACK(onActivate), nullptr);
   int status = g_application_run(G_APPLICATION(app), argc, argv);
   g_object_unref(app);
